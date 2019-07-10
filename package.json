@@ -1,0 +1,38 @@
+{
+  "name": "skeleton-nodejs",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">8.9.0"
+  },
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "clean": "rm -rf build && mkdir build",
+    "start": "node -r dotenv/config -r @babel/register .",
+    "watch": "nodemon -r dotenv/config -r @babel/register .",
+    "build-server": "babel ./src -d ./build --copy-files",
+    "build": "yarn clean && yarn build-server",
+    "lint": "standard",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "yarn test --watch",
+    "test:coverage": "yarn test --coverage"
+  },
+  "author": "Nikki Christofi <nikki.christofi@gmail.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "dotenv": "^8.0.0",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
+    "standard": "^12.0.1"
+  }
+}
